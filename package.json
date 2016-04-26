@@ -5,6 +5,7 @@
   "author": "Ivan Prokhorov <ivanp@tikalk.com>",
   "description": "A simple helpful robot for your Company",
   "dependencies": {
+    "debug": "^2.2.0",
     "hubot": "^2.18.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.2.6",
