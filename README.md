@@ -212,3 +212,15 @@ Add the subdomain hubot should connect to. If you web URL looks like
 
 You may want to get comfortable with `heroku logs` and `heroku restart` if
 you're having issues.
+
+
+
+
+***************************************************************
+ofer
+*******************************************************
+set HUBOT_SLACK_TOKEN=xoxb-1234-5678-91011-00e4dd
+
+For hpesw-chatops-dev.slack.com
+--------------------------------
+set HUBOT_SLACK_TOKEN=xoxb-37798132887-O5unk5My1mOuEmP3Q8eEjzOQ
