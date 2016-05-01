@@ -223,6 +223,14 @@ set HUBOT_SLACK_TOKEN=xoxb-1234-5678-91011-00e4dd
 
 For hpesw-chatops-dev.slack.com
 --------------------------------
+WINDOWS
+***********
 set HUBOT_SLACK_TOKEN=xoxb-37798132887-O5unk5My1mOuEmP3Q8eEjzOQ
 set NODE_TLS_REJECT_UNAUTHORIZED=0
 bin\hubot --adapter slack
+
+UBUNTU
+**********
+
+HUBOT_SLACK_TOKEN=xoxb-37798132887-O5unk5My1mOuEmP3Q8eEjzOQ NODE_TLS_REJECT_UNAUTHORIZED=0 bin/hubot --adapter slack
+
