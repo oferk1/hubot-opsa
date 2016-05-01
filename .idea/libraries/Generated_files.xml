@@ -29,6 +29,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/reddit-random-top.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/hipchat-api.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/tumblr.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/cssbeautify/cssbeautify.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/ruby.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/walmart.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/quakes.js" />
@@ -61,6 +62,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/javascript-sandbox.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/hangout.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/myappstatus.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/jslint/jslint.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/reddit.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/uptime-robot.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/nettipot.js" />
@@ -74,6 +76,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/youtube-info.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sendgrid.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/xkcd.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/jshint/jshint.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/lyrics.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/xbmc.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/party_gifs.js" />
@@ -88,12 +91,11 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-maps/index.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/lmgtfy.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-pugme/test/pugme-test.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/cssmin/cssmin.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/time.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-maps/src/maps.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/roll.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-help/index.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/meme_captain.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-help/src/help.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/yelp.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/scoped-http-client/test/request_test.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/prank-text.js" />
@@ -110,6 +112,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/scoped-http-client/test/get_test.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/spin.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot/index.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/jsmin/jsmin.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/jenkins.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot/script/server.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/linsanity.js" />
@@ -161,15 +164,12 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/wwls.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/uptime.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/webcam.js" />
-        <item url="file://$PROJECT_DIR$/node_modules1/hubot-shipit/src/shipit.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/rubygems.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/mtg.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/homer.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/robot-memes.js" />
-        <item url="file://$PROJECT_DIR$/node_modules1/hubot/bin/hubot.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/spotify.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/jokels.js" />
-        <item url="file://$PROJECT_DIR$/node_modules1/.bin/hubot.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/getajob.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/jordan.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/pin.js" />
@@ -234,8 +234,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/archer.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/base58.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/ambush.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/beerme.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/Cakefile.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/beerme.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/animal.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sugarcrm.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/base64.js" />
@@ -245,10 +245,13 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sms.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/drush.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/src/ipaddr.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/coffee-script/CNAME.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cowsay.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/urban.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/better-require/examples/js/helloworld.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/decide.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/semaphoreapp.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/CNAME.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/carlton.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/test/ipaddr.test.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/capgun.js" />
@@ -310,8 +313,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/beastmode.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/whatis.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/bitbucket.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/karma.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/beanstalk.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/karma.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/tryerlang.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/chartbeat.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sigh.js" />
@@ -328,8 +331,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/countdown.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/rimshot.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/drupalorg.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/gorbypuff.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/android-os.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/gorbypuff.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/mindkiller.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/days_since.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/twitter.js" />
@@ -352,8 +355,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cumberbatch.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/offthegrid.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/dimmerworld.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/goooood.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/dialectizer.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/goooood.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/whereisbill.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/disassemble.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/trajectorystorylisten.js" />
@@ -362,8 +365,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/rally.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/chuck-norris.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/trolololo.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/conversation.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/tweet.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/conversation.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/commandlinefu.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/wikipedia.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/doer_of_deeds.js" />
@@ -377,19 +380,16 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/demolition-man.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/stocks.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/illogical.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-diagnostics/src/diagnostics.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-diagnostics/index.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/reddit-jokes.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/bitbucket-activity.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/webshot.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/list-jira-bugs.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/twitter_mention.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/iwdrm.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-diagnostics/test/diagnostics-test.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-redis-brain/src/redis-brain.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/revx-quotes.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sloth-me.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-redis-brain/test/redis-brain-test.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sloth-me.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-redis-brain/index.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/trollicon.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-google-images/test/google-images-test.js" />
@@ -432,8 +432,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/kittens.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/flying-high.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/jira-issues.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/email.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/github-status.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/email.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/eval.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/gerrit.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/46elks.js" />
@@ -511,6 +511,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/meme_generator.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/stallman.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/screencast.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/coffee-script/CNAME.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/graylog.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/talklikewarrenellis.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/rhubot.js" />
@@ -525,6 +526,14 @@
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-help/index.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-help/src/help.js" />
+      <root url="file://$PROJECT_DIR$/node_modules1/hubot-shipit/src/shipit.js" />
+      <root url="file://$PROJECT_DIR$/node_modules1/hubot/bin/hubot.js" />
+      <root url="file://$PROJECT_DIR$/node_modules1/.bin/hubot.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-diagnostics/src/diagnostics.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-diagnostics/index.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-diagnostics/test/diagnostics-test.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/wunderground.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/gifsanity.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/resque.js" />
@@ -552,6 +561,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/reddit-random-top.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/hipchat-api.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/tumblr.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/cssbeautify/cssbeautify.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/ruby.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/walmart.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/quakes.js" />
@@ -584,6 +594,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/javascript-sandbox.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/hangout.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/myappstatus.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/jslint/jslint.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/reddit.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/uptime-robot.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/nettipot.js" />
@@ -597,6 +608,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/youtube-info.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sendgrid.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/xkcd.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/jshint/jshint.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/lyrics.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/xbmc.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/party_gifs.js" />
@@ -611,12 +623,11 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-maps/index.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/lmgtfy.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-pugme/test/pugme-test.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/cssmin/cssmin.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/time.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-maps/src/maps.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/roll.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-help/index.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/meme_captain.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-help/src/help.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/yelp.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/scoped-http-client/test/request_test.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/prank-text.js" />
@@ -633,6 +644,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/scoped-http-client/test/get_test.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/spin.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot/index.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/node_modules/esprima-six-jpike/temp/eightpack/jsmin/jsmin.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/jenkins.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot/script/server.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/linsanity.js" />
@@ -684,15 +696,12 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/wwls.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/uptime.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/webcam.js" />
-      <root url="file://$PROJECT_DIR$/node_modules1/hubot-shipit/src/shipit.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/rubygems.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/mtg.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/homer.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/robot-memes.js" />
-      <root url="file://$PROJECT_DIR$/node_modules1/hubot/bin/hubot.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/spotify.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/jokels.js" />
-      <root url="file://$PROJECT_DIR$/node_modules1/.bin/hubot.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/getajob.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/jordan.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/pin.js" />
@@ -757,8 +766,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/archer.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/base58.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/ambush.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/beerme.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/Cakefile.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/beerme.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/animal.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sugarcrm.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/base64.js" />
@@ -768,10 +777,13 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sms.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/drush.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/src/ipaddr.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/coffee-script/CNAME.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cowsay.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/urban.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/better-require/examples/js/helloworld.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/decide.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/semaphoreapp.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/better-require/node_modules/six/CNAME.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/carlton.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/test/ipaddr.test.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/capgun.js" />
@@ -833,8 +845,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/beastmode.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/whatis.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/bitbucket.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/karma.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/beanstalk.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/karma.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/tryerlang.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/chartbeat.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sigh.js" />
@@ -851,8 +863,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/countdown.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/rimshot.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/drupalorg.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/gorbypuff.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/android-os.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/gorbypuff.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/mindkiller.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/days_since.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/twitter.js" />
@@ -875,8 +887,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cumberbatch.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/offthegrid.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/dimmerworld.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/goooood.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/dialectizer.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/goooood.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/whereisbill.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/disassemble.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/trajectorystorylisten.js" />
@@ -885,8 +897,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/rally.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/chuck-norris.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/trolololo.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/conversation.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/tweet.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/conversation.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/commandlinefu.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/wikipedia.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/doer_of_deeds.js" />
@@ -900,19 +912,16 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/demolition-man.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/stocks.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/illogical.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-diagnostics/src/diagnostics.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-diagnostics/index.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/reddit-jokes.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/bitbucket-activity.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/webshot.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/list-jira-bugs.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/twitter_mention.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/iwdrm.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-diagnostics/test/diagnostics-test.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-redis-brain/src/redis-brain.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/revx-quotes.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sloth-me.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-redis-brain/test/redis-brain-test.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sloth-me.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-redis-brain/index.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/trollicon.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-google-images/test/google-images-test.js" />
@@ -955,8 +964,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/kittens.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/flying-high.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/jira-issues.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/email.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/github-status.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/email.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/eval.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/gerrit.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/46elks.js" />
@@ -1034,6 +1043,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/meme_generator.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/stallman.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/screencast.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/coffee-script/CNAME.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/graylog.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/talklikewarrenellis.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/rhubot.js" />
