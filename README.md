@@ -234,3 +234,15 @@ UBUNTU
 
 HUBOT_SLACK_TOKEN=xoxb-37798132887-O5unk5My1mOuEmP3Q8eEjzOQ NODE_TLS_REJECT_UNAUTHORIZED=0 bin/hubot --adapter slack
 
+DEBUGGING:
+***********
+In order for the JetBrains debugger to work, below 2 coffee script lines of code need to be added at the beginning of the files in the following 2 paths:
+
+Coffee Script Files:
+---------------------
+/home/ofer/myhubot/node_modules/.bin/hubot
+
+Code Block:
+-----------
+require('coffee-script/register')
+require('better-require') 'coffeescript'
