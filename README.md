@@ -225,14 +225,15 @@ For hpesw-chatops-dev.slack.com
 --------------------------------
 WINDOWS
 ***********
-set HUBOT_SLACK_TOKEN=xoxb-37798132887-4hIj9xEjeIzZWZlwpfhSa2k4
+set HUBOT_SLACK_TOKEN=xxx
 set NODE_TLS_REJECT_UNAUTHORIZED=0
 bin\hubot --adapter slack
 
 UBUNTU
 **********
 
-HUBOT_SLACK_TOKEN=xoxb-37798132887-O5unk5My1mOuEmP3Q8eEjzOQ NODE_TLS_REJECT_UNAUTHORIZED=0 bin/hubot --adapter slack
+HUBOT_SLACK_TOKEN=xxx NODE_TLS_REJECT_UNAUTHORIZED=0 bin/hubot --adapter slack
+HUBOT_SLACK_TOKEN=xxx HUBOT_LOG_LEVEL=debug PORT=5003 NODE_TLS_REJECT_UNAUTHORIZED=0 bin/hubot --adapter slack
 
 DEBUGGING:
 ***********

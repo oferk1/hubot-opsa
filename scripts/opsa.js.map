@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "opsa.js",
+  "sourceRoot": "",
+  "sources": [
+    "opsa.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAUA;EAAA,MAAM,CAAC,OAAP,GAAiB,SAAC,KAAD;WAEf,KAAK,CAAC,IAAN,CAAW,MAAX,EAAmB,SAAC,GAAD;aACjB,GAAG,CAAC,IAAJ,CAAS,oDAAT;IADiB,CAAnB;EAFe;AAAjB"
+}
