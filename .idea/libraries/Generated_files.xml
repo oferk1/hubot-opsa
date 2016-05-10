@@ -237,8 +237,11 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/notify.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/reddit.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/polite.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-slack-attachment/index.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/points.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-slack-attachment/src/slack-attachment.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/minime.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-slack-attachment/node_modules/coffee-script/CNAME.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/lyrics.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/phpdoc.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/locpix.js" />
@@ -1826,8 +1829,11 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/notify.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/reddit.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/polite.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-slack-attachment/index.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/points.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-slack-attachment/src/slack-attachment.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/minime.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-slack-attachment/node_modules/coffee-script/CNAME.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/lyrics.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/phpdoc.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/locpix.js" />
