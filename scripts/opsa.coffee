@@ -142,11 +142,11 @@ createMessage = (res) ->
         }
         content:
 # see https://api.slack.com/docs/attachments
-            text: "Attachment text"
-            fallback: "Attachment fallback"
+            text: "Alert Test"
+            fallback: "Alert fallback"
             fields: [{
-                title: "Field title"
-                value: "Field value"
+                title: "Alert Field 1"
+                value: "Alert value 1"
             }]
         channel: "#opsa-channel" # optional, defaults to message.room
         username: "opsa" # optional, defaults to robot.name
@@ -299,6 +299,65 @@ displayHosts = (res) ->
     }
     `
     res.reply "Displaying top #{numHosts} hosts"+ scan(JSON.parse(opsa))
+#Promise = require('promise')
+request = require('request')
+hostName = '16.60.188.235:8080/opsa'
+user = "opsa"
+password = "opsa"
+
+displayAnomalies = (res1) ->
+    opsaHomeUrl = 'http://' + hostName
+    requestp(opsaHomeUrl).then ((res, data) ->
+        firstCookie = res.headers["set-cookie"][0]
+        jSessionId = firstCookie.split("=")[1].split(";")[0]
+        securityCheckUrl = opsaHomeUrl + "/j_security_check";
+        jar = request.jar()
+        cookie = request.cookie("JSESSIONID=" + jSessionId)
+        jar.setCookie cookie, securityCheckUrl, (error, cookie) ->
+            a = 5
+        headers =
+            method: 'POST'
+            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+            jar: jar
+            'Accept-Encoding': 'gzip, deflate'
+            'Accept-Language': 'en-US,en;q=0.8,he;q=0.6'
+            Connection: 'keep-alive'
+            'Content-Type': 'application/x-www-form-urlencoded'
+            'Upgrade-Insecure-Requests': 1
+            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36'
+            form:
+                j_username: user
+                j_password: password
+        requestp(securityCheckUrl, headers).then ((res, data) ->
+            a = 3
+        )
+        return
+    ), (err) ->
+        console.error '%s; %s', err.message, opsaHomeUrl
+        console.log '%j', err.res.statusCode
+        return
+    res1.reply 'Displaying Anomalies For Host: ' + res1.match[1]
+
+requestp = (url, headers) ->
+    headers = headers or {}
+    new Promise((resolve, reject) ->
+        request {
+            url: url
+            headers: headers
+        }, (err, res, body) ->
+            if err
+                return reject(err)
+            else if res.statusCode != 200
+                err = new Error('Unexpected status code: ' + res.statusCode)
+                err.res = res
+                return reject(err)
+            resolve res, body
+            return
+        return
+    )
+
+
+
 
 module.exports = (robot) ->
     robot.respond /top (.*) hosts/i, (res) ->
@@ -306,4 +365,7 @@ module.exports = (robot) ->
 
     robot.respond /alert (.*)/i, (res) ->
         createMessage(res)
+
+    robot.respond /display anomalies for host: (.*)/i, (res) ->
+        displayAnomalies(res)
 
