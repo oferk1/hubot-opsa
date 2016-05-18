@@ -318,9 +318,11 @@ createJar = (res, securityCheckUrl) ->
     jar.setCookie cookie, securityCheckUrl, (error, cookie) ->
 
 updateSemaphore = ->
+    ongoing = false
     if Date.now() - semaphore < 250
         ongoing = true;
     semaphore = Date.now()
+    return ongoing
 
 displayAnomalies = (res1) ->
     if updateSemaphore()

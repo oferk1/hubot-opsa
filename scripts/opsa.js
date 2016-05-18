@@ -321,10 +321,12 @@
 
     updateSemaphore = function () {
         var ongoing;
+        ongoing = false;
         if (Date.now() - semaphore < 250) {
             ongoing = true;
         }
-        return semaphore = Date.now();
+        semaphore = Date.now();
+        return ongoing;
     };
 
     displayAnomalies = function (res1) {
