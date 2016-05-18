@@ -305,7 +305,7 @@ require('request-debug')(request);
 hostName = '16.60.188.235:8080/opsa'
 user = "opsa"
 password = "opsa"
-semaphore = false;
+semaphore = 0
 
 getSessionId = (res) ->
     firstCookie = res.headers["set-cookie"][0]
@@ -317,10 +317,14 @@ createJar = (res, securityCheckUrl) ->
     cookie = request.cookie('JSESSIONID=' + jSessionId)
     jar.setCookie cookie, securityCheckUrl, (error, cookie) ->
 
+updateSemaphore = ->
+    if Date.now() - semaphore < 250
+        ongoing = true;
+    semaphore = Date.now()
+
 displayAnomalies = (res1) ->
-    if semaphore == true
-        return;
-    semaphore = true
+    if updateSemaphore()
+        return
     opsaHomeUrl = 'http://' + hostName
     requestp(opsaHomeUrl).then ((res, data) ->
         securityCheckUrl = opsaHomeUrl + "/j_security_check"
