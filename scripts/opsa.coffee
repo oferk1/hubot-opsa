@@ -308,14 +308,22 @@ password = "opsa"
 semaphore = 0
 ongoing = false
 
-getSessionId = (res) ->
-  firstCookie = res.headers["set-cookie"][0]
+getSessionId = (res, cookieIndex) ->
+  cookie = res.headers["set-cookie"]
+  if typeof cookie == 'undefined'
+    return
+  firstCookie = cookie[cookieIndex]
   jSessionId = firstCookie.split("=")[1].split(";")[0]
 
-createJar = (res, url) ->
-  jSessionId = getSessionId(res)
+createJar = (res, url, cookieIndex) ->
+  if !cookieIndex
+    cookieIndex = 0
+  jSessionId = getSessionId(res, cookieIndex)
+  if typeof jSessionId == 'undefined'
+    return
   jar = request.jar()
   cookie = request.cookie('JSESSIONID=' + jSessionId)
+  console.log "setting cookie: " + cookie
   jar.setCookie cookie, url, (error, cookie) ->
   return jar
 
@@ -329,7 +337,7 @@ updateSemaphore = ->
 
 getSecurityRequestParams = (opsaHomeUrl, res) ->
   url = opsaHomeUrl + "/j_security_check"
-  jar = createJar(res, url)
+  jar = createJar(res, url, 1)
   method = 'POST'
   form =
     j_username: user
@@ -350,6 +358,24 @@ getSecurityRequestParams = (opsaHomeUrl, res) ->
     headers
     form
   }
+
+getInitialRequestParams = (opsaHomeUrl) ->
+  url = opsaHomeUrl
+  method = 'GET'
+  headers =
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'Accept-Encoding': 'gzip, deflate, sdch'
+    'Accept-Language': 'en-US,en;q=0.8,he;q=0.6'
+    'Connection': 'keep-alive'
+    'Upgrade-Insecure-Requests': '1'
+    'Content-Type': 'text/html'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36'
+  {
+    method
+    url
+    headers
+  }
+
 getNewSessionIdRequestParams = (opsaHomeUrl, res) ->
   url = opsaHomeUrl
   jar = createJar(res, url)
@@ -378,7 +404,7 @@ getXSRFRequestParams = (opsaHomeUrl, res) ->
     'Upgrade-Insecure-Requests': '1'
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36'
     'Cache-Control': 'max-age=0'
-  jar = createJar(res, getXSRFTokenUrl)
+  jar = createJar(res, url)
   {
     method
     url
@@ -392,11 +418,12 @@ displayAnomalies = (res1) ->
     return
   ongoing = true
   opsaHomeUrl = 'http://' + hostName
-  requestp(opsaHomeUrl).then ((res, data) ->
+  initUrl = getInitialRequestParams(opsaHomeUrl)
+  requestp(initUrl.url, initUrl.headers).then ((res) ->
     secReq = getSecurityRequestParams(opsaHomeUrl, res)
     requestp(secReq.url, secReq.headers, secReq.method, secReq.jar, secReq.form).then ((res) ->
       newIdReq = getNewSessionIdRequestParams(opsaHomeUrl, res)
-      requestp(newIdReq.url, newIdReq.headers, newIdReq.method, newIdReq.jar).then ((res) ->
+      requestp(newIdReq.url, newIdReq.headers, newIdReq.method, secReq.jar).then ((res) ->
         xsrfReq = getXSRFRequestParams(opsaHomeUrl, res)
         requestp(xsrfReq.url, xsrfReq.headers, xsrfReq.method, xsrfReq.jar).then ((res) ->
           ongoing = false
@@ -418,21 +445,22 @@ requestp = (url, headers, method, jar, form) ->
   method = method or 'GET'
   jar = jar or {}
   form = form or {}
-  ongoing = true;
   new Promise((resolve, reject) ->
-    request {
+    reqData = {
       uri: url
       headers: headers
       method: method
-      jar: jar
-      form: form
-      encoding: null
-    }, (err, res, body) ->
+    }
+    if jar
+      reqData.jar = jar
+    if form
+      reqData.form = form
+    request reqData, (err, res, body) ->
       if err
         return reject(err)
-      else if res.headers["set-cookie"]
+      else if res.statusCode == 200 || res.statusCode == 302
         resolve res, body
-      else if res.statusCode != 200
+      else
         err = new Error('Unexpected status code: ' + res.statusCode)
         err.res = res
         return reject(err)
