@@ -301,35 +301,59 @@ displayHosts = (res) ->
     res.reply "Displaying top #{numHosts} hosts"+ scan(JSON.parse(opsa))
 #Promise = require('promise')
 request = require('request')
+require('request-debug')(request);
 hostName = '16.60.188.235:8080/opsa'
 user = "opsa"
 password = "opsa"
+semaphore = false;
+
+getSessionId = (res) ->
+    firstCookie = res.headers["set-cookie"][0]
+    jSessionId = firstCookie.split("=")[1].split(";")[0]
+
+createJar = (res, securityCheckUrl) ->
+    jSessionId = getSessionId(res)
+    jar = request.jar()
+    cookie = request.cookie('JSESSIONID=' + jSessionId)
+    jar.setCookie cookie, securityCheckUrl, (error, cookie) ->
 
 displayAnomalies = (res1) ->
+    if semaphore == true
+        return;
+    semaphore = true
     opsaHomeUrl = 'http://' + hostName
     requestp(opsaHomeUrl).then ((res, data) ->
-        firstCookie = res.headers["set-cookie"][0]
-        jSessionId = firstCookie.split("=")[1].split(";")[0]
-        securityCheckUrl = opsaHomeUrl + "/j_security_check";
-        jar = request.jar()
-        cookie = request.cookie("JSESSIONID=" + jSessionId)
-        jar.setCookie cookie, securityCheckUrl, (error, cookie) ->
-            a = 5
+        securityCheckUrl = opsaHomeUrl + "/j_security_check"
+        jar = createJar(res, securityCheckUrl)
+        form =
+            j_username: user
+            j_password: password
         headers =
-            method: 'POST'
-            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
-            jar: jar
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
             'Accept-Encoding': 'gzip, deflate'
             'Accept-Language': 'en-US,en;q=0.8,he;q=0.6'
-            Connection: 'keep-alive'
+            'Connection': 'keep-alive'
             'Content-Type': 'application/x-www-form-urlencoded'
-            'Upgrade-Insecure-Requests': 1
+            'Upgrade-Insecure-Requests': '1'
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36'
-            form:
-                j_username: user
-                j_password: password
-        requestp(securityCheckUrl, headers).then ((res, data) ->
-            a = 3
+            'Origin': 'http://16.60.188.235:8080'
+            'Referer': 'http://16.60.188.235:8080/opsa/'
+            'Cache-Control': 'max-age=0'
+        requestp(securityCheckUrl, headers, 'POST', jar, form).then ((res) ->
+            headers =
+                'Accept': 'application/json, text/plain, */*'
+                'Accept-Encoding': 'gzip, deflate, sdch'
+                'Accept-Language': 'en-US,en;q=0.8,he;q=0.6'
+                'Connection': 'keep-alive'
+                'Upgrade-Insecure-Requests': '1'
+                'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36'
+                'Cache-Control': 'max-age=0'
+            getXSRFTokenUrl = opsaHomeUrl + "/rest/getXSRFToken"
+            jar = createJar(res, getXSRFTokenUrl)
+            requestp(getXSRFTokenUrl, headers, 'GET', jar).then ((res) ->
+                iconv = require("iconv-lite")
+                console.log iconv.decode(res.body, 'x-www-form-urlencoded')
+        )
         )
         return
     ), (err) ->
@@ -338,15 +362,25 @@ displayAnomalies = (res1) ->
         return
     res1.reply 'Displaying Anomalies For Host: ' + res1.match[1]
 
-requestp = (url, headers) ->
+requestp = (url, headers, method, jar, form) ->
     headers = headers or {}
+    method = method or 'GET'
+    jar = jar or {}
+    form = form or {}
+
     new Promise((resolve, reject) ->
         request {
-            url: url
+            uri: url
             headers: headers
+            method: method
+            jar: jar
+            form: form
+            encoding: null
         }, (err, res, body) ->
             if err
                 return reject(err)
+            else if res.headers["set-cookie"]
+                resolve res, body
             else if res.statusCode != 200
                 err = new Error('Unexpected status code: ' + res.statusCode)
                 err.res = res

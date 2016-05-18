@@ -371,6 +371,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/brb.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/aws.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cat.js" />
+        <item url="file://$PROJECT_DIR$/scripts/opsa.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/bij.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/aww.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/ip.js" />
@@ -1987,6 +1988,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/brb.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/aws.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cat.js" />
+      <root url="file://$PROJECT_DIR$/scripts/opsa.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/bij.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/aww.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/ip.js" />
