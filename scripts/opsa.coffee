@@ -27,8 +27,8 @@ hostName = '16.60.188.235:8080/opsa'
 opsaHomeUrl = 'http://' + hostName
 user = "opsa"
 password = "opsa"
-semaphore = 0
 ongoing = false
+lastTime = Date.now()
 
 getSessionId = (res, cookieIndex) ->
   cookie = res.headers["set-cookie"]
@@ -82,34 +82,36 @@ AnomaliesAPI::invoker = (callback) ->
   )
   return
 
-invokeOpsaApiHandler = (res1) ->
-  if !lastTime
-    lastTime = Date.now()
-  secondsSinceLastTime = (Date.now() - lastTime) * 1000
+okToContinue = ->
+  secondsSinceLastTime = (Date.now() - lastTime) / 1000
   if secondsSinceLastTime < 30 && ongoing
-    return
-  lastTime = Date.now();
+    return false
+  else
+    lastTime = Date.now();
+    ongoing = true
+    return true
 
-  ongoing = true
+loginOpsa = (res1, loginCallback) ->
+  if !okToContinue()
+    return
   seqUrl = opsaHomeUrl + "/j_security_check"
   xsrfUrl = opsaHomeUrl + "/rest/getXSRFToken"
   loginForm =
     j_username: user
     j_password: password
+
+  invokeAPI = (res, apiSessionResponse) ->
+    xsrfToken = res.body
+    sessionId = getSessionId(apiSessionResponse, 0)
+    loginCallback(xsrfToken, sessionId)
+
   requestp(opsaHomeUrl).then ((res) ->
     jar4SecurityRequest = createJar(res, seqUrl, 1)
     requestp(seqUrl, jar4SecurityRequest, 'POST', {}, loginForm).then ((res) ->
       requestp(opsaHomeUrl, jar4SecurityRequest).then ((apiSessionResponse) ->
         jar4XSRFRequest = createJar(apiSessionResponse, xsrfUrl)
         requestp(xsrfUrl, jar4XSRFRequest).then ((res) ->
-          xsrfToken = res.body
-          sessionId = getSessionId(apiSessionResponse, 0)
-          anomaliesAPI = new AnomaliesAPI(xsrfToken, sessionId, 'hostName', 'from', 'to')
-          callback = (body) ->
-            res1.reply 'Displaying Anomalies For Host: ' + scan(JSON.parse(body))
-            ongoing = false
-            return
-          anomaliesAPI.invoke(callback)
+          invokeAPI res, apiSessionResponse
 
         )
       )
@@ -156,5 +158,12 @@ requestp = (url, jar, method, headers, form) ->
 module.exports = (robot) ->
 
   robot.respond /display anomalies for host: (.*)/i, (res) ->
-    invokeOpsaApiHandler(res)
+    loginCallback = (xsrfToken, sessionId) ->
+      anomaliesAPI = new AnomaliesAPI(xsrfToken, sessionId, 'hostName', 'from', 'to')
+      apiCallback = (body) ->
+        res.reply 'Displaying Anomalies For Host: ' + scan(JSON.parse(body))
+        ongoing = false
+        return
+      anomaliesAPI.invoke apiCallback
+    loginOpsa(res, loginCallback)
 
