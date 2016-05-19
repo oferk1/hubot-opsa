@@ -288,7 +288,6 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/odesk.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/pgsql.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/janky.js" />
-        <item url="file://$PROJECT_DIR$/scripts/opsa.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/karma.js" />
         <item url="file://$PROJECT_DIR$/scripts/example.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/oauth.js" />
@@ -361,6 +360,7 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/wat.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sms.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/pin.js" />
+        <item url="file://$PROJECT_DIR$/scripts/test.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/npm.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/mtg.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/mta.js" />
@@ -370,8 +370,8 @@
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/fml.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/brb.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/aws.js" />
-        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cat.js" />
         <item url="file://$PROJECT_DIR$/scripts/opsa.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cat.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/bij.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/aww.js" />
         <item url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/ip.js" />
@@ -1905,7 +1905,6 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/odesk.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/pgsql.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/janky.js" />
-      <root url="file://$PROJECT_DIR$/scripts/opsa.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/karma.js" />
       <root url="file://$PROJECT_DIR$/scripts/example.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/oauth.js" />
@@ -1978,6 +1977,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/wat.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/sms.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/pin.js" />
+      <root url="file://$PROJECT_DIR$/scripts/test.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/npm.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/mtg.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/mta.js" />
@@ -1987,8 +1987,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/fml.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/brb.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/aws.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cat.js" />
       <root url="file://$PROJECT_DIR$/scripts/opsa.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cat.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/bij.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/aww.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/ip.js" />

@@ -393,6 +393,29 @@ getNewSessionIdRequestParams = (opsaHomeUrl, res) ->
     jar
     headers
   }
+
+getAnomaliesRequestParams = (opsaHomeUrl, res, xsrfToken) ->
+  url = opsaHomeUrl + '/rest/lmt/getIntegratedSystemsDefaults'
+
+  url = opsaHomeUrl + "/rest/getQueryResult?aqlQuery=%5Banomalies%5BattributeQuery(%7Bopsa_collection_anomalies%7D,+%7B%7D,+%7Bi.anomaly_id%7D)%5D()%5D+&endTime=1463654996351&granularity=0&pageIndex=1&paramsMap=%7B%22$drill_dest%22:%22AnomalyInstance%22,%22$drill_label%22:%22opsa_collection_anomalies_description%22,%22$drill_value%22:%22opsa_collection_anomalies_anomaly_id%22,%22$limit%22:%22500%22,%22$interval%22:300,%22$offset%22:0,%22$N%22:5,%22$pctile%22:10,%22$timeoffset%22:0,%22$starttimeoffset%22:0,%22$endtimeoffset%22:0,%22$timeout%22:0,%22$drill_type%22:%22%22,%22$problemtime%22:1463653196351,%22$aggregate_playback_flag%22:null%7D&queryType=generic&startTime=1463651396351&timeZoneOffset=-180&timeout=10&visualType=table"
+  jar = createJar(res, url)
+  method = 'GET'
+  method = 'POST'
+  headers =
+    'Accept': 'application/json, text/plain, */*'
+    'Accept-Encoding': 'gzip, deflate, sdch'
+    'Accept-Language': 'en-US,en;q=0.8,he;q=0.6'
+    'Connection': 'keep-alive'
+    'Upgrade-Insecure-Requests': '1'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36'
+    'XSRFToken': xsrfToken
+  {
+    method
+    url
+    jar
+    headers
+  }
+
 getXSRFRequestParams = (opsaHomeUrl, res) ->
   method = 'GET'
   url = opsaHomeUrl + "/rest/getXSRFToken"
@@ -411,24 +434,72 @@ getXSRFRequestParams = (opsaHomeUrl, res) ->
     jar
     headers
   }
-displayAnomalies = (res1) ->
+invokeOpsaApiHandler = (res1) ->
 #  if updateSemaphore()
 #    return
-  if ongoing || !updateSemaphore()
+## || !updateSemaphore()
+  if ongoing
     return
   ongoing = true
   opsaHomeUrl = 'http://' + hostName
+  reply = ""
   initUrl = getInitialRequestParams(opsaHomeUrl)
   requestp(initUrl.url, initUrl.headers).then ((res) ->
     secReq = getSecurityRequestParams(opsaHomeUrl, res)
     requestp(secReq.url, secReq.headers, secReq.method, secReq.jar, secReq.form).then ((res) ->
       newIdReq = getNewSessionIdRequestParams(opsaHomeUrl, res)
-      requestp(newIdReq.url, newIdReq.headers, newIdReq.method, secReq.jar).then ((res) ->
-        xsrfReq = getXSRFRequestParams(opsaHomeUrl, res)
+      requestp(newIdReq.url, newIdReq.headers, newIdReq.method, secReq.jar).then ((apiSessionResponse) ->
+        xsrfReq = getXSRFRequestParams(opsaHomeUrl, apiSessionResponse)
         requestp(xsrfReq.url, xsrfReq.headers, xsrfReq.method, xsrfReq.jar).then ((res) ->
+          xsrfToken = res.body
+          console.log apiSessionResponse
           ongoing = false
-          iconv = require("iconv-lite")
-          console.log iconv.decode(res.body, 'x-www-form-urlencoded')
+          OpsaAPI = undefined
+          AnomaliesAPI = undefined
+          FirstAnomaliesAPI = undefined
+
+          OpsaAPI = (xsrfToken, jSessionId) ->
+            @xsrfToken = xsrfToken.slice 1, -1
+            @jSessionId = jSessionId
+            return
+
+          AnomaliesAPI = (xsrfToken, jSessionId, hostName, from, to) ->
+            OpsaAPI.call this, xsrfToken, jSessionId
+            @hostName = hostName
+            @from = from
+            @to = to
+            return
+
+          OpsaAPI::invoke = ->
+            console.log 'invoking API' + @jSessionId
+            @invoker()
+            return
+
+          AnomaliesAPI.prototype = Object.create(OpsaAPI.prototype)
+          AnomaliesAPI::constructor = AnomaliesAPI
+
+          AnomaliesAPI::invoker = ->
+            console.log 'Hello, I\'m ' + @firstName + '. I\'m studying ' + @subject + '.'
+            anomReq = getAnomaliesRequestParams(opsaHomeUrl, apiSessionResponse, @xsrfToken)
+            requestp(anomReq.url, anomReq.headers, anomReq.method, anomReq.jar).then ((anomResponse) ->
+              res1.reply 'Displaying Anomalies For Host: ' + scan(JSON.parse(JSON.stringify(anomResponse.body)))
+            )
+            return
+
+          AnomaliesAPI::sayGoodBye = ->
+            console.log 'Goodbye!'
+            return
+
+          FirstAnomaliesAPI = new AnomaliesAPI(xsrfToken, apiSessionResponse, 'hostName', 'from', 'to')
+          FirstAnomaliesAPI.invoke()
+
+
+
+
+
+
+
+
         )
       )
     )
@@ -438,7 +509,7 @@ displayAnomalies = (res1) ->
     console.error '%s; %s', err.message, opsaHomeUrl
     console.log '%j', err.res.statusCode
     return
-  res1.reply 'Displaying Anomalies For Host: ' + res1.match[1]
+  res1.reply 'Please wait'
 
 requestp = (url, headers, method, jar, form) ->
   headers = headers or {}
@@ -458,9 +529,10 @@ requestp = (url, headers, method, jar, form) ->
     request reqData, (err, res, body) ->
       if err
         return reject(err)
-      else if res.statusCode == 200 || res.statusCode == 302
+      else if res.statusCode == 200 || res.statusCode == 302 || res.statusCode == 400
         resolve res, body
       else
+        ongoing = false
         err = new Error('Unexpected status code: ' + res.statusCode)
         err.res = res
         return reject(err)
@@ -478,5 +550,5 @@ module.exports = (robot) ->
     createMessage(res)
 
   robot.respond /display anomalies for host: (.*)/i, (res) ->
-    displayAnomalies(res)
+    invokeOpsaApiHandler(res)
 
