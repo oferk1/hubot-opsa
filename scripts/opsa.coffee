@@ -23,11 +23,13 @@ scan = (obj, level) ->
 
 request = require('request')
 require('request-debug')(request);
-hostName = '16.60.188.94:8080/opsa'
-opsaHomeUrl = 'http://' + hostName
 user = "opsa"
 password = "opsa"
 ongoing = false
+port = "8080"
+path = "opsa"
+protocol = "http"
+host = "16.60.188.94"
 lastTime = Date.now()
 
 getSessionId = (res, cookieIndex) ->
@@ -72,8 +74,14 @@ OpsaAPI::invoke = (callback)->
 
 AnomaliesAPI.prototype = Object.create(OpsaAPI.prototype)
 AnomaliesAPI::constructor = AnomaliesAPI
+getOpsaUri = ->
+  protocol + "://" + host + ":" + port + "/" + path
 AnomaliesAPI::invoker = (callback) ->
-  anomUrl = opsaHomeUrl + "/rest/getQueryResult?aqlQuery=%5Banomalies%5BattributeQuery(%7Bopsa_collection_anomalies%7D,+%7B%7D,+%7Bi.anomaly_id%7D)%5D()%5D+&endTime=1463654996351&granularity=0&pageIndex=1&paramsMap=%7B%22$drill_dest%22:%22AnomalyInstance%22,%22$drill_label%22:%22opsa_collection_anomalies_description%22,%22$drill_value%22:%22opsa_collection_anomalies_anomaly_id%22,%22$limit%22:%22500%22,%22$interval%22:300,%22$offset%22:0,%22$N%22:5,%22$pctile%22:10,%22$timeoffset%22:0,%22$starttimeoffset%22:0,%22$endtimeoffset%22:0,%22$timeout%22:0,%22$drill_type%22:%22%22,%22$problemtime%22:1463653196351,%22$aggregate_playback_flag%22:null%7D&queryType=generic&startTime=1463651396351&timeZoneOffset=-180&timeout=10&visualType=table"
+  ONE_HOUR = 60 * 60 * 1000;
+  now = new Date().getTime()
+  oneHourAgo = now - ONE_HOUR
+
+  anomUrl = getOpsaUri() + "/rest/getQueryResult?aqlQuery=%5Banomalies%5BattributeQuery(%7Bopsa_collection_anomalies%7D,+%7B%7D,+%7Bi.anomaly_id%7D)%5D()%5D+&endTime=" + now + "&granularity=0&pageIndex=1&paramsMap=%7B%22$drill_dest%22:%22AnomalyInstance%22,%22$drill_label%22:%22opsa_collection_anomalies_description%22,%22$drill_value%22:%22opsa_collection_anomalies_anomaly_id%22,%22$limit%22:%22500%22,%22$interval%22:300,%22$offset%22:0,%22$N%22:5,%22$pctile%22:10,%22$timeoffset%22:0,%22$starttimeoffset%22:0,%22$endtimeoffset%22:0,%22$timeout%22:0,%22$drill_type%22:%22%22,%22$problemtime%22:1463653196351,%22$aggregate_playback_flag%22:null%7D&queryType=generic&startTime=" + oneHourAgo + "&timeZoneOffset=-180&timeout=10&visualType=table"
   anomJar = generateJar(@jSessionId, anomUrl)
   anomHeaders =
     'XSRFToken': @xsrfToken
@@ -91,11 +99,13 @@ okToContinue = ->
     ongoing = true
     return true
 
-loginOpsa = (res1, loginCallback) ->
+loginOpsa = (userRes, loginCallback) ->
   if !okToContinue()
     return
-  seqUrl = opsaHomeUrl + "/j_security_check"
-  xsrfUrl = opsaHomeUrl + "/rest/getXSRFToken"
+  # '16.60.188.94:8080/opsa'
+  opsaUri = getOpsaUri();
+  seqUrl = getOpsaUri() + "/j_security_check"
+  xsrfUrl = getOpsaUri() + "/rest/getXSRFToken"
   loginForm =
     j_username: user
     j_password: password
@@ -105,10 +115,10 @@ loginOpsa = (res1, loginCallback) ->
     sessionId = getSessionId(apiSessionResponse, 0)
     loginCallback(xsrfToken, sessionId)
 
-  requestp(opsaHomeUrl).then ((res) ->
+  requestp(opsaUri).then ((res) ->
     jar4SecurityRequest = createJar(res, seqUrl, 1)
     requestp(seqUrl, jar4SecurityRequest, 'POST', {}, loginForm).then ((res) ->
-      requestp(opsaHomeUrl, jar4SecurityRequest).then ((apiSessionResponse) ->
+      requestp(opsaUri, jar4SecurityRequest).then ((apiSessionResponse) ->
         jar4XSRFRequest = createJar(apiSessionResponse, xsrfUrl)
         requestp(xsrfUrl, jar4XSRFRequest).then ((res) ->
           invokeAPI res, apiSessionResponse
@@ -119,10 +129,10 @@ loginOpsa = (res1, loginCallback) ->
     return
   ), (err) ->
     ongoing = false
-    console.error '%s; %s', err.message, opsaHomeUrl
+    console.error '%s; %s', err.message, getOpsaUri()
     console.log '%j', err.res.statusCode
     return
-  res1.reply 'Please wait'
+  userRes.reply 'Please wait'
 
 requestp = (url, jar, method, headers, form) ->
   headers = headers or {}
@@ -155,11 +165,12 @@ requestp = (url, jar, method, headers, form) ->
   )
 
 
+getRequestedHost = (res) ->
+  res.match[1].replace(/^https?\:\/\//i, "");
 module.exports = (robot) ->
-
-  robot.respond /display anomalies for host: (.*)/i, (res) ->
+  robot.respond /display anomalies for host:(.*)/i, (res) ->
     loginCallback = (xsrfToken, sessionId) ->
-      anomaliesAPI = new AnomaliesAPI(xsrfToken, sessionId, 'hostName', 'from', 'to')
+      anomaliesAPI = new AnomaliesAPI(xsrfToken, sessionId, 'host', 'from', 'to')
       apiCallback = (body) ->
         colNames = new Array()
         collections = JSON.parse(body)
@@ -173,10 +184,17 @@ module.exports = (robot) ->
                 colNames.push table.columnNames[columnIdx].columnTitle
               for rowIdx of table.tableDataWithDrill
                 row = table.tableDataWithDrill[rowIdx]
+                rowStr = ""
+                display = false;
                 for colIdx of row
-                  output += "*" + colNames[colIdx] + ":* " + row[colIdx].displayValue + "\n"
-
-        res.reply 'Displaying Anomalies For Host: ' + res.match[1] + "\n" + output
+                  colName = colNames[colIdx]
+                  colValue = row[colIdx].displayValue
+                  if display == false && colName == "Entity" && (colValue == getRequestedHost() || colValue == "*")
+                    display = true
+                  rowStr += "*" + colName + ":* " + colValue + "\n"
+                if (display)
+                  output += rowStr
+        res.reply 'Displaying Anomalies For Host: ' + getRequestedHost(res) + "\n" + output
         ongoing = false
         return
 
