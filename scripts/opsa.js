@@ -210,16 +210,17 @@
   };
 
   module.exports = function(robot) {
-    return robot.respond(/display anomalies for host:(.*)/i, function (res) {
+    return robot.respond(/display anomalies for host:?:\s*(.*)/i, function (res) {
       var loginCallback;
       loginCallback = function(xsrfToken, sessionId) {
         var anomaliesAPI, apiCallback;
         anomaliesAPI = new AnomaliesAPI(xsrfToken, sessionId, 'host', 'from', 'to');
         apiCallback = function(body) {
-          var colIdx, colName, colNames, colValue, collectionId, collections, columnIdx, display, obj, output, resultObjectIdx, row, rowIdx, rowStr, table, tableIdx;
+          var colIdx, colName, colNames, colValue, collectionId, collections, columnIdx, display, displayed, obj, output, replyText, requestedHost, resultObjectIdx, row, rowIdx, rowStr, table, tableIdx;
           colNames = new Array();
           collections = JSON.parse(body);
           output = "";
+          requestedHost = getRequestedHost(res);
           for (collectionId in collections) {
             for (resultObjectIdx in collections[collectionId]) {
               obj = collections[collectionId];
@@ -232,11 +233,13 @@
                   row = table.tableDataWithDrill[rowIdx];
                   rowStr = "";
                   display = false;
+                  displayed = 0;
                   for (colIdx in row) {
                     colName = colNames[colIdx];
                     colValue = row[colIdx].displayValue;
-                    if (display === false && colName === "Entity" && (colValue === getRequestedHost() || colValue === "*")) {
+                    if (display === false && colName === "Entity" && (colValue === requestedHost || requestedHost === "*")) {
                       display = true;
+                      displayed++;
                     }
                     rowStr += "*" + colName + ":* " + colValue + "\n";
                   }
@@ -247,7 +250,12 @@
               }
             }
           }
-          res.reply('Displaying Anomalies For Host: ' + getRequestedHost(res) + "\n" + output);
+          if (displayed === 0) {
+            replyText = 'No data found for host: ' + getRequestedHost(res) + "\n";
+          } else {
+            replyText = 'Displaying Anomalies For Host: ' + getRequestedHost(res) + "\n" + output;
+          }
+          res.reply(replyText);
           ongoing = false;
         };
         return anomaliesAPI.invoke(apiCallback);

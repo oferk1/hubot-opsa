@@ -168,13 +168,14 @@ requestp = (url, jar, method, headers, form) ->
 getRequestedHost = (res) ->
   res.match[1].replace(/^https?\:\/\//i, "");
 module.exports = (robot) ->
-  robot.respond /display anomalies for host:(.*)/i, (res) ->
+  robot.respond /display anomalies for host:?:\s*(.*)/i, (res) ->
     loginCallback = (xsrfToken, sessionId) ->
       anomaliesAPI = new AnomaliesAPI(xsrfToken, sessionId, 'host', 'from', 'to')
       apiCallback = (body) ->
         colNames = new Array()
         collections = JSON.parse(body)
         output = ""
+        requestedHost = getRequestedHost(res)
         for collectionId of collections
           for resultObjectIdx of collections[collectionId]
             obj = collections[collectionId]
@@ -186,15 +187,21 @@ module.exports = (robot) ->
                 row = table.tableDataWithDrill[rowIdx]
                 rowStr = ""
                 display = false;
+                displayed = 0
                 for colIdx of row
                   colName = colNames[colIdx]
                   colValue = row[colIdx].displayValue
-                  if display == false && colName == "Entity" && (colValue == getRequestedHost() || colValue == "*")
+                  if display == false && colName == "Entity" && (colValue == requestedHost || requestedHost == "*")
                     display = true
+                    displayed++
                   rowStr += "*" + colName + ":* " + colValue + "\n"
                 if (display)
                   output += rowStr
-        res.reply 'Displaying Anomalies For Host: ' + getRequestedHost(res) + "\n" + output
+        if displayed == 0
+          replyText = 'No data found for host: ' + getRequestedHost(res) + "\n"
+        else
+          replyText = 'Displaying Anomalies For Host: ' + getRequestedHost(res) + "\n" + output
+        res.reply replyText
         ongoing = false
         return
 
