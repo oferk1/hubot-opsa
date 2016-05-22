@@ -23,7 +23,7 @@ scan = (obj, level) ->
 
 request = require('request')
 require('request-debug')(request);
-hostName = '16.60.188.235:8080/opsa'
+hostName = '16.60.188.94:8080/opsa'
 opsaHomeUrl = 'http://' + hostName
 user = "opsa"
 password = "opsa"
@@ -161,9 +161,25 @@ module.exports = (robot) ->
     loginCallback = (xsrfToken, sessionId) ->
       anomaliesAPI = new AnomaliesAPI(xsrfToken, sessionId, 'hostName', 'from', 'to')
       apiCallback = (body) ->
-        res.reply 'Displaying Anomalies For Host: ' + scan(JSON.parse(body))
+        colNames = new Array()
+        collections = JSON.parse(body)
+        output = ""
+        for collectionId of collections
+          for resultObjectIdx of collections[collectionId]
+            obj = collections[collectionId]
+            for tableIdx of obj[resultObjectIdx].processedResult
+              table = obj[resultObjectIdx].processedResult[tableIdx]
+              for columnIdx of table.columnNames
+                colNames.push table.columnNames[columnIdx].columnTitle
+              for rowIdx of table.tableDataWithDrill
+                row = table.tableDataWithDrill[rowIdx]
+                for colIdx of row
+                  output += "*" + colNames[colIdx] + ":* " + row[colIdx].displayValue + "\n"
+
+        res.reply 'Displaying Anomalies For Host: ' + res.match[1] + "\n" + output
         ongoing = false
         return
+
       anomaliesAPI.invoke apiCallback
     loginOpsa(res, loginCallback)
 
