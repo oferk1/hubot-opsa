@@ -2,7 +2,7 @@
 (function () {
     var Anomalies, Opsa, Utils, request;
 
-    Utils = require('opsaApiUtils.coffee');
+    Utils = require('opsa-api-utils.coffee');
 
     request = require('request');
 
@@ -17,7 +17,7 @@
             var loginCallback;
             loginCallback = function (xsrfToken, sessionId) {
                 var anomaliesAPI, apiCallback;
-                anomaliesAPI = new Anomalies.AnomaliesAPI(xsrfToken, sessionId, 'host', 'from', 'to');
+                anomaliesAPI = new Anomalies.AnomaliesAPI(xsrfToken, sessionId);
                 apiCallback = function (body) {
                     var replyText, requestedHost;
                     requestedHost = Utils.getRequestedHost(res);

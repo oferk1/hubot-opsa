@@ -1,5 +1,5 @@
-Utils = require('opsaApiUtils.coffee')
-Properties = require('opsaApiProperties.coffee')
+Utils = require('opsa-api-utils.coffee')
+Properties = require('opsa-api-properties.coffee')
 
 OpsaAPI = (xsrfToken, jSessionId) ->
   @xsrfToken = xsrfToken.slice 1, -1
@@ -33,7 +33,6 @@ OpsaAPI::login = (userRes, loginCallback) ->
         jar4XSRFRequest = Utils.createJar(apiSessionResponse, xsrfUrl)
         Utils.requestp(xsrfUrl, jar4XSRFRequest).then ((res) ->
           invokeAPI res, apiSessionResponse
-
         )
       )
     )

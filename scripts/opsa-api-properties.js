@@ -11,4 +11,4 @@
 
 }).call(this);
 
-//# sourceMappingURL=opsaApiProperties.js.map
+//# sourceMappingURL=opsa-api-properties.js.map

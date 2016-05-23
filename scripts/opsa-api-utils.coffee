@@ -1,6 +1,6 @@
 request = require('request');
 require('request-debug')(request);
-Properties = require('opsaApiProperties.coffee')
+Properties = require('opsa-api-properties.coffee')
 getOpsaUri = ->
   Properties.protocol + "://" + Properties.host + ":" + Properties.port + "/" + Properties.path
 getSessionId = (res, cookieIndex) ->

@@ -1880,10 +1880,10 @@
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/gifbin.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/gif-me.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/faceup.js" />
-      <root url="file://$PROJECT_DIR$/scripts/opsaApiProperties.js" />
+      <root url="file://$PROJECT_DIR$/scripts/opsa-api-properties.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/deploy.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/excuse.js" />
-      <root url="file://$PROJECT_DIR$/scripts/opsaApiUtils.js" />
+      <root url="file://$PROJECT_DIR$/scripts/opsa-api-utils.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/capgun.js" />
       <root url="file://$PROJECT_DIR$/scripts/opsa-anomalies-api.js" />
       <root url="file://$PROJECT_DIR$/node_modules/hubot-scripts/src/scripts/cowsay.js" />

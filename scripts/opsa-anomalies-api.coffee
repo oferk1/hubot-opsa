@@ -1,5 +1,5 @@
 Opsa = require('opsa-general-api.coffee')
-Utils = require('opsaApiUtils.coffee')
+Utils = require('opsa-api-utils.coffee')
 AnomaliesAPI = (xsrfToken, jSessionId) ->
   OpsaAPI.call this, xsrfToken, jSessionId
   return

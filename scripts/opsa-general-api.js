@@ -2,9 +2,9 @@
 (function() {
   var OpsaAPI, Properties, Utils;
 
-  Utils = require('opsaApiUtils.coffee');
+    Utils = require('opsa-api-utils.coffee');
 
-  Properties = require('opsaApiProperties.coffee');
+    Properties = require('opsa-api-properties.coffee');
 
   OpsaAPI = function(xsrfToken, jSessionId) {
     this.xsrfToken = xsrfToken.slice(1, -1);

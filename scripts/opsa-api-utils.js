@@ -6,7 +6,7 @@
 
     require('request-debug')(request);
 
-    Properties = require('opsaApiProperties.coffee');
+    Properties = require('opsa-api-properties.coffee');
 
     getOpsaUri = function () {
         return Properties.protocol + "://" + Properties.host + ":" + Properties.port + "/" + Properties.path;
@@ -112,4 +112,4 @@
 
 }).call(this);
 
-//# sourceMappingURL=opsaApiUtils.js.map
+//# sourceMappingURL=opsa-api-utils.js.map

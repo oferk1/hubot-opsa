@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "opsa-api-properties.js",
+  "sourceRoot": "",
+  "sources": [
+    "opsa-api-properties.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;EAAA,MAAM,CAAC,OAAP,GAAiB;IACf,IAAA,EAAM,MADS;IAEf,QAAA,EAAU,MAFK;IAGf,IAAA,EAAM,MAHS;IAIf,IAAA,EAAM,MAJS;IAKf,QAAA,EAAU,MALK;IAMf,IAAA,EAAM,cANS;;AAAjB"
+}
