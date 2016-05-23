@@ -219,8 +219,12 @@ you're having issues.
 ***************************************************************
 ofer
 *******************************************************
-set HUBOT_SLACK_TOKEN=xoxb-1234-5678-91011-00e4dd
+set HUBOT_SLACK_TOKEN=xxxxxxxxxxxxx
 
+more env variables:
+NODE_PATH = $NODE_PATH:./node_modules:./scripts
+PATH = node_modules/hubot/node_modules:/home/ofer/myhubot: node_modules/hubot :node_modules/hubot/bin:node_modules/:node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH;
+NODE_TLS_REJECT_UNAUTHORIZED = 0
 For hpesw-chatops-dev.slack.com
 --------------------------------
 WINDOWS
