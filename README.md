@@ -9,6 +9,9 @@ Deployment and Launching:
 2. Clone repository and run npm install.
 3. Rename opsa-configuration-sample.json to opsa-configuration.json and fill credentials in it.
 4. Run npm install
+( on windows with proxy run the following in the terminal: npm config set http-proxy http://[proxy-name]:[port-number]
+    same on https)
+
 5. (optional - if you want to use jetbrains ide debugger) Configure jetbrains file watchers to create javascript files from coffeescript.
 3. Run the following command in terminal, Substituting [port-number] and [slack-token] with desired port number and token from previous step.
 
