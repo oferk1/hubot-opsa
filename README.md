@@ -13,18 +13,18 @@ Deployment and Launching:
     same on https)
 
 5. (optional - if you want to use jetbrains ide debugger) Configure jetbrains file watchers to create javascript files from coffeescript.
-3. Run the following command in terminal, Substituting [port-number] and [slack-token] with desired port number and token from previous step.
 
 ON LINUX
 *********
 
-Run the following command in terminal, Substituting [port-number] , [slack-token], [proxy-url:port] with desired port number and token from previous step.
+Run the following command in terminal, Substituting [port-number] , [slack-token], [proxy-url:port] with desired port number and token from previous step:
+
 HUBOT_SLACK_TOKEN=[slack-token] NODE_TLS_REJECT_UNAUTHORIZED=0 HTTP_PROXY=[proxy-url:port] PORT=[port-number]  PATH=node_modules/hubot/node_modules:/home/ofer/myhubot:node_modules/hubot:node_modules/hubot/bin:node_modules/:node_modules/.bin:node_modules/hubot/node_modules/.bin:./src:$PATH HUBOT_LOG_LEVEL=debug NODE_PATH=$NODE_PATH:./node_modules:./scripts:./src:./lib bin/hubot --adapter slack
 
 ON WINDOWS
 ***********
 
-Run the following commands in Power Shell, Substituting [port-number] , [slack-token],[proxy-url:port] with desired port number and token from previous step.
+Run the following commands in Power Shell, Substituting [port-number] , [slack-token],[proxy-url:port] with desired port number and token from previous step:
 
 $env:HUBOT_SLACK_TOKEN = "[slack-token]"
 
