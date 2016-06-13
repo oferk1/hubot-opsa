@@ -1,6 +1,6 @@
 fs = require('fs');
-utils = require('utils')
-Properties = require('opsa-api-properties.coffee')
+utils = require('../lib/utils.coffee')
+Properties = require('../lib/opsa-api-properties.coffee')
 request = require('request')
 getSessionId = (res, cookieIndex) ->
   cookie = res.headers["set-cookie"]

@@ -1,7 +1,7 @@
 fs = require('fs');
 utils = require('utils')
 request = require('request')
-opsa = require('opsa')
+opsa = require('../lib/opsa.coffee')
 AnomAPI = (xsrfToken, jSessionId) ->
   if xsrfToken
     @xsrfToken = xsrfToken.slice 1, -1

@@ -1,10 +1,11 @@
 request = require('request')
 require('request-debug')(request);
-opsa = require('opsa')
-utils = require('utils')
+console.log(__dirname)
+opsa = require('../lib/opsa.coffee')
+utils = require('../lib/utils.coffee')
 pleaseWaitMsg = 'Please wait...'
 hubotRouter = new utils.RegistrationHandler()
-AnomAPI = require("AnomAPI")
+AnomAPI = require("../lib/AnomAPI")
 
 module.exports = (robot) ->
   invokeAnomaliesAPI = (userRes) ->

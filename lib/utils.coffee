@@ -1,7 +1,7 @@
 fs = require('fs');
 request = require('request')
 require('request-debug')(request);
-opsa = require('opsa')
+opsa = require('../lib/opsa.coffee')
 requestp = (params) ->
   url = params.url
   headers = params.headers or {}
@@ -70,7 +70,7 @@ getOneHourAgoTS = () ->
   return now - ONE_HOUR
 getLinkToHost = (hostName) ->
   encodedQuery = encodeURIComponent('host withkey "' + hostName)
-  opsa = require('opsa')
+  opsa = require('../lib/opsa.coffee')
   url = opsa.getUrl() + '/#/logsearchpql?search=' + encodedQuery + '"&start=' + getOneHourAgoTS() + '&end=' + now + '&selectedTimeRange=ONE_HOUR'
   return url
 progressCallback = ()->

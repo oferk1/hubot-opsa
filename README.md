@@ -24,13 +24,13 @@ WINDOWS
 *******
 Run the following command in Power Shell, Substituting [port-number] , [slack-token],[proxy-url:port] with desired port number and token from previous step.
 
-[Environment]::SetEnvironmentVariable("HUBOT_SLACK_TOKEN", "[slack-token]", "Machine")
-[Environment]::SetEnvironmentVariable("NODE_TLS_REJECT_UNAUTHORIZED", "0", "Machine")
-[Environment]::SetEnvironmentVariable("PORT", "[port-number]", "Machine")
-[Environment]::SetEnvironmentVariable("PATH", "node_modules/hubot/node_modules:node_modules/hubot:node_modules/hubot/bin:node_modules/:node_modules/.bin:node_modules/hubot/node_modules/.bin:./src:$PATH", "Machine")
-[Environment]::SetEnvironmentVariable("NODE_PATH", "./node_modules:./scripts:./src:./lib:$NODE_PATH", "Machine")
-[Environment]::SetEnvironmentVariable("HUBOT_LOG_LEVEL", "debug", "Machine")
-[Environment]::SetEnvironmentVariable("HTTP_PROXY", [proxy-url:port], "Machine")
+$env:HUBOT_SLACK_TOKEN = "[slack-token]"
+$env:NODE_TLS_REJECT_UNAUTHORIZED = "0"
+$env:PORT = "[port-number]"
+$env:PATH = "node_modules/hubot/node_modules:node_modules/hubot:node_modules/hubot/bin:node_modules/:node_modules/.bin:node_modules/hubot/node_modules/.bin:./src:$PATH"
+$env:NODE_PATH = "./node_modules:./scripts:./src:./lib:$NODE_PATH"
+$env:HUBOT_LOG_LEVEL = "debug" (optional)
+$env:HTTP_PROXY = "[proxy-url:port]"
 
 npm install -g coffee-script
 bin\hubot --adapter slack
