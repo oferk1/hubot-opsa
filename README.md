@@ -16,6 +16,7 @@ Deployment and Launching:
 
 ON LINUX
 *********
+Intall NodeJS and NPM
 
 Run the following command in terminal, Substituting [port-number] , [slack-token], [proxy-url:port] with desired port number and token from previous step:
 
@@ -23,6 +24,7 @@ HUBOT_SLACK_TOKEN=[slack-token] NODE_TLS_REJECT_UNAUTHORIZED=0 HTTP_PROXY=[proxy
 
 ON WINDOWS
 ***********
+Intall NodeJS and NPM
 
 Run the following commands in Power Shell, Substituting [port-number] , [slack-token],[proxy-url:port] with desired port number and token from previous step:
 
@@ -41,7 +43,7 @@ $env:HUBOT_LOG_LEVEL = "debug" (optional)
 $env:HTTP_PROXY = "[proxy-url:port]"
 
 
-npm install -g coffee-script/n
+npm install -g coffee-script
 
 bin\hubot --adapter slack
 
